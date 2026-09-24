@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro — Instituto Vagalume</title>
+  <meta name="description" content="Cadastre-se como voluntário, mediador de leitura ou apoiador do Instituto Vagalume.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="index.html" class="brand">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" stroke="#D98F2B" stroke-width="2"/>
+          <path d="M9 17c1.5-5 3.5-8 5-8s3.5 3 5 8" stroke="#1F3D2B" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="14" cy="9" r="1.6" fill="#D98F2B"/>
+        </svg>
+        Instituto Vagalume
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+        <span></span>
+        <span class="sr-only">Abrir menu</span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <div class="wrap">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="cadastro.html" aria-current="page">Quero ajudar</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="chapter-mark">Cadastro</span>
+          <h1>Vamos começar sua parte da história</h1>
+          <p>Preencha os dados abaixo. Levamos cerca de 3 minutos e entramos em contato em até 5 dias úteis.</p>
+        </div>
+
+        <div class="form-card">
+
+          <div id="formStatus" class="form-status" role="alert"></div>
+
+          <form id="cadastroForm" novalidate>
+
+            <fieldset>
+              <legend>Dados pessoais</legend>
+
+              <div class="field">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required minlength="3" autocomplete="name">
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" placeholder="voce@email.com" required autocomplete="email">
+                </div>
+
+                <div class="field">
+                  <label for="telefone">Telefone / WhatsApp</label>
+                  <input type="tel" id="telefone" name="telefone"
+                         placeholder="(00) 00000-0000"
+                         pattern="\(\d{2}\) \d{5}-\d{4}"
+                         maxlength="15"
+                         inputmode="numeric"
+                         required
+                         autocomplete="tel">
+                  <span class="hint">Formato: (00) 00000-0000</span>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="cpf">CPF</label>
+                  <input type="text" id="cpf" name="cpf"
+                         placeholder="000.000.000-00"
+                         pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                         maxlength="14"
+                         inputmode="numeric"
+                         required>
+                  <span class="hint">Formato: 000.000.000-00</span>
+                </div>
+
+                <div class="field">
+                  <label for="nascimento">Data de nascimento</label>
+                  <input type="date" id="nascimento" name="nascimento" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Endereço</legend>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="cep">CEP</label>
+                  <input type="text" id="cep" name="cep"
+                         placeholder="00000-000"
+                         pattern="\d{5}-\d{3}"
+                         maxlength="9"
+                         inputmode="numeric"
+                         required>
+                  <span class="hint">Formato: 00000-000</span>
+                </div>
+
+                <div class="field">
+                  <label for="bairro">Bairro</label>
+                  <input type="text" id="bairro" name="bairro" placeholder="Seu bairro" required>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Como você quer ajudar?</legend>
+
+              <div class="field radio-group" role="radiogroup" aria-label="Forma de participação">
+                <label>
+                  <input type="radio" name="participacao" value="Contador de histórias" required>
+                  Contador(a) de histórias voluntário(a)
+                </label>
+                <label>
+                  <input type="radio" name="participacao" value="Mediador de leitura">
+                  Quero fazer a formação de mediador(a) de leitura
+                </label>
+                <label>
+                  <input type="radio" name="participacao" value="Doador de livros">
+                  Doador(a) de livros
+                </label>
+                <label>
+                  <input type="radio" name="participacao" value="Apoiador mensal">
+                  Apoiador(a) mensal (doação em dinheiro)
+                </label>
+              </div>
+
+              <div class="field">
+                <label for="mensagem">Mensagem (opcional)</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte um pouco sobre você ou sua disponibilidade"></textarea>
+              </div>
+
+              <div class="field checkbox-group">
+                <label>
+                  <input type="checkbox" id="termos" name="termos" required>
+                  Concordo com o uso dos meus dados para contato do Instituto Vagalume, conforme a LGPD.
+                </label>
+              </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary">Enviar cadastro</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <h3>Instituto Vagalume</h3>
+        <p>Associação sem fins lucrativos<br>CNPJ 00.000.000/0001-00</p>
+      </div>
+      <div>
+        <h3>Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="cadastro.html">Quero ajudar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <p>contato@institutovagalume.org.br<br>São Paulo, SP</p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      &copy; 2026 Instituto Vagalume. Site desenvolvido como projeto acadêmico.
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
