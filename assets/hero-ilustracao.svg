@@ -1,0 +1,13 @@
+<svg viewBox="0 0 300 375" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle">
+  <title id="heroTitle">Livro aberto sob vagalumes, representando um encontro noturno de leitura</title>
+  <rect width="300" height="375" fill="#1F3D2B"/>
+  <g opacity="0.9">
+    <path d="M60 260 L150 220 L240 260 L240 300 L150 260 L60 300 Z" fill="#F1C878"/>
+    <line x1="150" y1="220" x2="150" y2="260" stroke="#FBF6EC" stroke-width="2"/>
+  </g>
+  <circle cx="90" cy="90" r="3" fill="#F1C878"/>
+  <circle cx="200" cy="70" r="4" fill="#D98F2B"/>
+  <circle cx="230" cy="140" r="2.5" fill="#F1C878"/>
+  <circle cx="70" cy="150" r="2" fill="#D98F2B"/>
+  <circle cx="160" cy="110" r="3" fill="#F1C878"/>
+</svg>
