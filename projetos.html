@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  
+
   <header class="site-header">
     <div class="wrap">
       <a href="index.html" class="brand">
@@ -47,78 +47,14 @@
           <p>Cada iniciativa do Instituto Vagalume cuida de uma parte do caminho entre a criança e o livro — do acesso à formação de quem conta a história.</p>
         </div>
 
-        <div class="chapters">
-
-          <article class="chapter">
-            <span class="chapter-num" aria-hidden="true">01</span>
-            <div>
-              <h3>Bibliotecas de Bairro</h3>
-              <p>
-                Montamos e mantemos acervos comunitários em espaços já existentes no
-                território — salões paroquiais, centros culturais e sedes de associação
-                de moradores — para que o livro fique a uma quadra de distância, não a uma
-                condução de ônibus.
-              </p>
-              <ul class="tag-list">
-                <li>14 bibliotecas ativas</li>
-                <li>Acervo rotativo</li>
-                <li>Aberto à comunidade</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="chapter">
-            <span class="chapter-num" aria-hidden="true">02</span>
-            <div>
-              <h3>Roda de Histórias</h3>
-              <p>
-                Sessões semanais de contação de histórias em escolas públicas e praças,
-                conduzidas por voluntários formados pelo Instituto. A oralidade é a porta
-                de entrada para crianças que ainda não leem sozinhas.
-              </p>
-              <ul class="tag-list">
-                <li>60 rodas por mês</li>
-                <li>Educação infantil e fundamental I</li>
-                <li>Voluntariado presencial</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="chapter">
-            <span class="chapter-num" aria-hidden="true">03</span>
-            <div>
-              <h3>Formação de Mediadores</h3>
-              <p>
-                Curso gratuito de 20 horas para moradores do território que querem se
-                tornar mediadores de leitura remunerados dentro da própria comunidade —
-                gerando renda e fortalecendo vínculos locais com a leitura.
-              </p>
-              <ul class="tag-list">
-                <li>180 formados desde 2016</li>
-                <li>Bolsa-formação</li>
-                <li>Certificado próprio</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="chapter">
-            <span class="chapter-num" aria-hidden="true">04</span>
-            <div>
-              <h3>Campanha Livro Que Viaja</h3>
-              <p>
-                Pontos de coleta de livros infantis e juvenis usados, em bom estado,
-                doados por famílias, escolas e editoras parceiras — depois higienizados,
-                catalogados e distribuídos entre as bibliotecas de bairro.
-              </p>
-              <ul class="tag-list">
-                <li>Coleta contínua</li>
-                <li>Parceria com editoras</li>
-                <li>8 pontos de coleta</li>
-              </ul>
-            </div>
-          </article>
-
-        </div>
+        <!--
+          Os 4 cards abaixo NÃO ficam mais escritos aqui em HTML fixo.
+          Eles são gerados dinamicamente pelo JavaScript (função renderProjetos,
+          em js/script.js) a partir do array "projetos", usando .map() +
+          template literals. Este <div> só precisa do id abaixo — o
+          conteúdo é injetado em tempo de execução.
+        -->
+        <div class="chapters" id="projetosContainer"></div>
       </div>
     </section>
 
