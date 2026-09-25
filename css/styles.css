@@ -1,0 +1,532 @@
+/* ===========================================================
+   Instituto Vagalume — folha de estilos principal
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- Paleta --- */
+  --forest:      #1F3D2B;
+  --forest-dark: #142819;
+  --amber:       #D98F2B;
+  --amber-light: #F1C878;
+  --paper:       #FBF6EC;
+  --paper-dim:   #F1E9D8;
+  --ink:         #1B1712;
+  --ink-soft:    #55503F;
+  --sage:        #7C9473;
+  --line:        #DDD2B8;
+
+  /* --- Tipografia --- */
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* --- Escala --- */
+  --step-1: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --step-2: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --step-3: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  --step-4: clamp(2.5rem, 2rem + 2vw, 4rem);
+
+  --max-text: 62ch;
+  --max-wide: 1120px;
+}
+
+* { box-sizing: border-box; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-1);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--forest-dark);
+}
+
+h1 { font-size: var(--step-4); }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-2); }
+
+p { margin: 0 0 1em; max-width: var(--max-text); }
+
+.wrap {
+  max-width: var(--max-wide);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* --- Foco visível para acessibilidade --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ===========================================================
+   Cabeçalho / navegação
+   =========================================================== */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--forest-dark);
+  text-decoration: none;
+}
+
+.brand svg { flex-shrink: 0; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--forest);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+}
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--forest-dark);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.nav-toggle span::before,
+.nav-toggle span::after { content: ""; position: absolute; }
+.nav-toggle span::before { top: -6px; }
+.nav-toggle span::after { top: 6px; }
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink-soft);
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+.main-nav a[aria-current="page"],
+.main-nav a:hover {
+  color: var(--forest-dark);
+  border-bottom-color: var(--amber);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: var(--forest);
+  color: var(--paper);
+}
+.btn-primary:hover { background: var(--forest-dark); }
+.btn-ghost {
+  background: transparent;
+  border-color: var(--forest);
+  color: var(--forest-dark);
+}
+.btn-ghost:hover { background: var(--forest); color: var(--paper); }
+
+/* ===========================================================
+   Hero
+   =========================================================== */
+
+.hero {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--amber);
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.hero h1 { margin-bottom: 1rem; }
+
+.hero .lead {
+  font-size: var(--step-2);
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-figure {
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  background: linear-gradient(160deg, var(--forest) 0%, var(--forest-dark) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-figure img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ===========================================================
+   Seções gerais / "capítulos"
+   =========================================================== */
+
+.section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.section + .section { border-top: 1px solid var(--line); }
+
+.section-alt { background: var(--paper-dim); }
+
+.chapter-mark {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--sage);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-head {
+  max-width: 52ch;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.section-head p { color: var(--ink-soft); }
+
+/* --- Estatísticas de impacto --- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.stat dt {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--forest);
+  font-weight: 700;
+}
+.stat dd {
+  margin: 0.25rem 0 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* --- Capítulos / projetos --- */
+.chapters { display: flex; flex-direction: column; }
+
+.chapter {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1.5rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+}
+.chapter:first-child { border-top: none; }
+
+.chapter-num {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  color: var(--line);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.chapter h3 { margin-bottom: 0.5rem; }
+.chapter p { color: var(--ink-soft); margin-bottom: 0.75rem; }
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+.tag-list li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--forest-dark);
+  background: var(--paper-dim);
+  border: 1px solid var(--line);
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+
+/* --- Citação --- */
+.quote {
+  border-left: 3px solid var(--amber);
+  padding-left: 1.5rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-2);
+  color: var(--forest-dark);
+  max-width: 48ch;
+}
+.quote cite {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+}
+
+/* --- CTA final --- */
+.cta {
+  background: var(--forest);
+  color: var(--paper);
+}
+.cta h2 { color: var(--paper); }
+.cta p { color: var(--paper-dim); }
+.cta .btn-ghost { border-color: var(--paper); color: var(--paper); }
+.cta .btn-ghost:hover { background: var(--paper); color: var(--forest-dark); }
+
+/* ===========================================================
+   Formulário de cadastro
+   =========================================================== */
+
+.form-card {
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+}
+
+legend {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  color: var(--forest-dark);
+  padding: 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.field .hint {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-top: 0.35rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--ink-soft);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.field input:invalid:not(:placeholder-shown) {
+  border-color: #b3402c;
+}
+
+.field input:valid:not(:placeholder-shown) {
+  border-color: var(--sage);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.radio-group input,
+.checkbox-group input {
+  width: auto;
+  margin-top: 0.25rem;
+}
+
+.form-status {
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  display: none;
+}
+.form-status.is-visible { display: block; }
+.form-status.success {
+  background: #E7EFDF;
+  color: var(--forest-dark);
+  border: 1px solid var(--sage);
+}
+.form-status.error {
+  background: #F6E3DD;
+  color: #7A2E1B;
+  border: 1px solid #C9765B;
+}
+
+/* ===========================================================
+   Rodapé
+   =========================================================== */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 3rem;
+  background: var(--paper-dim);
+}
+.site-footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.site-footer h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.site-footer p, .site-footer a { color: var(--ink-soft); font-size: 0.95rem; }
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 0.4rem; }
+.footer-links a { text-decoration: none; }
+.footer-links a:hover { color: var(--forest-dark); }
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ===========================================================
+   Responsivo
+   =========================================================== */
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero-figure { order: -1; max-width: 260px; margin-inline: auto; }
+  .stats { grid-template-columns: 1fr; gap: 1.5rem; }
+  .chapter { grid-template-columns: 1fr; gap: 0.5rem; }
+  .field-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .main-nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    display: none;
+  }
+  .main-nav.is-open { display: block; }
+  .main-nav .wrap { padding-block: 1rem; }
+  .main-nav ul { flex-direction: column; gap: 0; }
+  .main-nav a {
+    display: block;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap { position: relative; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
